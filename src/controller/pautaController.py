@@ -23,8 +23,8 @@ conf = ConnectionConfig(
     MAIL_FROM = MAIL_FROM,
     MAIL_PORT = MAIL_PORT,
     MAIL_SERVER = MAIL_SERVER,
-    MAIL_STARTTLS = False,
-    MAIL_SSL_TLS = True,
+    MAIL_STARTTLS = True,
+    MAIL_SSL_TLS = False,
     USE_CREDENTIALS = True,
     VALIDATE_CERTS = True
 )
