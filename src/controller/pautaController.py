@@ -1,5 +1,4 @@
 import os
-from dotenv import load_dotenv
 from fastapi_mail import ConnectionConfig, FastMail, MessageSchema, MessageType
 from ..domain.models.pautaSchema import EmailSchema
 from starlette.responses import JSONResponse
@@ -8,8 +7,6 @@ from fastapi import APIRouter
 pauta = APIRouter(
   prefix="/pauta"
 )
-
-load_dotenv()
 
 MAIL_USERNAME=os.getenv("MAIL_USERNAME")
 MAIL_PASSWORD=os.getenv("MAIL_PASSWORD")
