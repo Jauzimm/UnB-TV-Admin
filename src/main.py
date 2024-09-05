@@ -1,9 +1,9 @@
-from typing import List
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import BackgroundTasks, FastAPI
+from fastapi import  FastAPI
+
+
 from src.controller import pautaController
-import sys
-import uvicorn 
+# import sys
 
 
 app = FastAPI()
@@ -24,9 +24,9 @@ app.include_router(prefix="/api", router=pautaController.pauta)
 def read_root():
     return {"message": "UnB-TV!"}
 
-if __name__ == '__main__':
-  port = 8080
-  if (len(sys.argv) == 2):
-    port = sys.argv[1]
+# if __name__ == '__main__':
+#   port = 8080
+#   if (len(sys.argv) == 2):
+#     port = sys.argv[1]
 
-  uvicorn.run('main:app', reload=True, port=int(port), host="0.0.0.0")
+uvicorn.run('main:app', reload=True, port=int(port), host="0.0.0.0")
