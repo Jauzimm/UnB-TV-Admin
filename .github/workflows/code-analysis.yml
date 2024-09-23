@@ -4,6 +4,7 @@ on: push
 jobs:
   sonarcloud:
     runs-on: ubuntu-latest
+    environment: actions
 
     services:
       postgres:
@@ -52,7 +53,13 @@ jobs:
           POSTGRES_PORT: 5432
 
       - name: Gera arquivos de testes no formato .xml
-        run: python3 -m coverage xml 
+        run: python3 -m coverage xml -o coverage.xml
+
+      - name: Adding right path to files
+        run: |
+          sed -i 's+/home/runner/work/2024.1-UnB-TV-Admin/2024.1-UnB-TV-Admin+/github/workspace+g' ./coverage.xml
+          sed -i 's+/home/runner/work/2024.1-UnB-TV-Admin/2024.1-UnB-TV-Admin+/github/workspace+g' ./junit.xml
+
 
       - name: Executa SonarCloud Scan
         if: ${{ always() }}
