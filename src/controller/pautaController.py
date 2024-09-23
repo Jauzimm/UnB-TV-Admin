@@ -1,8 +1,11 @@
 import os
 from fastapi_mail import ConnectionConfig, FastMail, MessageSchema, MessageType
-from ..domain.models.pautaSchema import EmailSchema
+from domain.models.pautaSchema import EmailSchema
 from starlette.responses import JSONResponse
 from fastapi import APIRouter
+from dotenv import load_dotenv
+load_dotenv()
+
 
 pauta = APIRouter(
   prefix="/pauta"
