@@ -8,7 +8,10 @@ from controller import pautaController
 
 app = FastAPI()
 
-origins = ["*"]
+origins = [
+    "https://unbtv.netlify.app",
+    "http://localhost:4200",
+]
 
 app.add_middleware(
     CORSMiddleware,
